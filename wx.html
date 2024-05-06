@@ -26,6 +26,8 @@
         }
         .message {
             display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: center; /* Center horizontally */
             margin-bottom: 10px;
         }
         .message .avatar {
@@ -39,6 +41,12 @@
             padding: 10px;
             border-radius: 10px;
             max-width: 70%;
+            text-align: left; /* Align text left */
+        }
+        .message .time {
+            margin-top: 5px; /* Add margin for spacing */
+            font-size: 0.8em; /* Adjust font size */
+            color: #888; /* Gray color for time */
         }
         .footer {
             background-color: #009688;
@@ -51,19 +59,16 @@
     </style>
 </head>
 <body>
-<div class="header">
-    <div><img src="left-arrow.png" alt="Back" style="width: 20px;"></div>
-    <div>施耐德电气</div>
-    <div><img src="avatar.png" alt="Avatar" style="width: 40px;"></div>
-</div>
 <div class="chat-container">
     <div class="message">
         <img src="schneider-avatar.png" alt="Schneider Avatar" class="avatar">
         <div class="text">欢迎来到施耐德电气公众号！有什么可以帮助您的？</div>
+        <div class="time">10:30</div> <!-- Current time -->
     </div>
     <div class="message">
         <img src="schneider-avatar.png" alt="Schneider Avatar" class="avatar">
         <div class="text">您好！我们的智能家居产品涵盖智能开关、智能插座、智能灯具等，可以通过手机App远程控制，实现家居设备的智能化管理。</div>
+        <div class="time">10:32</div> <!-- Current time -->
     </div>
     <!-- More messages can be added here -->
 </div>
@@ -73,5 +78,23 @@
     <div>查业务</div>
     <div>看施家</div>
 </div>
+
+<script>
+    // JavaScript to set the time when the page loads
+    function setTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        minutes = minutes < 10 ? '0' + minutes : minutes; // Add leading zero if minutes < 10
+        var currentTime = hours + ':' + minutes;
+        var timeElements = document.getElementsByClassName('time');
+        for (var i = 0; i < timeElements.length; i++) {
+            timeElements[i].textContent = currentTime;
+        }
+    }
+    // Call setTime when the page loads
+    setTime();
+</script>
+
 </body>
 </html>
