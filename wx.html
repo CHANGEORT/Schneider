@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>施耐德电气</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
+            height: 100%; /* 让body和html元素的高度占满整个视窗 */
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            overflow: hidden; /* 防止页面滚动条出现 */
         }
         .header {
             background-color: #009688;
@@ -21,6 +21,8 @@
         }
         .chat-container {
             padding: 20px;
+            height: calc(100vh - 132px); /* 让聊天区域的高度占满除了header和footer之外的所有视窗高度 */
+            overflow-y: auto; /* 如果消息过多，出现滚动条 */
         }
         .message {
             display: flex;
