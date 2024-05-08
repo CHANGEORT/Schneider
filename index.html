@@ -171,8 +171,9 @@
         var now = new Date();
         var hours = now.getHours();
         var minutes = now.getMinutes();
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        var currentTime = hours + ':' + minutes;
+        var paddedHours = hours < 10 ? '0' + hours : hours;
+        var paddedMinutes = minutes < 10 ? '0' + minutes : minutes;
+        var currentTime = paddedHours + ':' + paddedMinutes;
         var timeElements = document.getElementsByClassName('time');
         for (var i = 0; i < timeElements.length; i++) {
             timeElements[i].textContent = currentTime;
